@@ -1,0 +1,39 @@
+object_tracking:
+  ros__parameters:
+
+    # Detection threshold (confidence level)
+    threshold: 0.7
+
+    # YOLOv8 model file path
+    model_file: yolov8n.pt
+
+    # Start recognition automatically on node initialization
+    start_on_init: true
+
+    # Class filtering - specify class to detect (empty string = detect all classes)
+    # Examples: "person", "cell phone", "bottle", "car", etc.
+    target_class: "bottle"
+
+    # Subscriber configuration
+    subscribers:
+      image_rgb:
+        topic: /micky_vision/camera/color/image_raw
+        qos_profile: 10
+
+    # Publisher configuration
+    publishers:
+      image:
+        topic: /micky_vision/tools_recognition
+        qos_profile: 10
+      tracking:
+        topic: /micky_vision/object_tracking
+        qos_profile: 10
+      debug:
+        topic: /micky_vision/tools_classes
+        qos_profile: 10
+
+    # Service configuration
+    services:
+      tracking:
+        start: /micky_vision/tracking_start
+        stop: /micky_vision/tracking_stop
