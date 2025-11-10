@@ -24,7 +24,8 @@ setup(
     license='TODO: License declaration',
     entry_points={
         'console_scripts': [
-            'tools_recognition = tools_recognition.tools_recognition.tools_recognition:main',
+            'tools_recognition = tools_recognition.tools_recognition:main',
+            'object_tracking_node = tools_recognition.object_tracking:main',
         ],
     },
 )

@@ -17,4 +17,4 @@ float64 score #score of the description given by the algorithm
 
 sensor_msgs/Image mask #segmentation mask (optional)
 vision_msgs/BoundingBox2D bbox #(optional)
-micky_vision_msgs/KeyPoint2D[] pose
+tools_detection_msgs/KeyPoint2D[] pose
