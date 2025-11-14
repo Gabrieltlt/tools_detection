@@ -290,7 +290,7 @@ class ToolsRecognition(BaseRecognition):
         self.threshold = self.get_parameter("threshold").value
         self.get_logger().info(f"Threshold: {self.threshold}")
         self.start_on_init = self.get_parameter("start_on_init").value
-        self.modelFile = get_package_share_directory('micky_recognition') + "/weights/" + self.get_parameter("model_file").value
+        self.modelFile = get_package_share_directory('tools_recognition') + "/weights/" + self.get_parameter("model_file").value
         self.maxSizes = self.get_parameter("max_sizes").value
         self.startRecognitionTopic = self.get_parameter("services.tools_recognition.start").value
         self.stopRecognitionTopic = self.get_parameter("services.tools_recognition.stop").value
