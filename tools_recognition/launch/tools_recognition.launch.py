@@ -13,6 +13,8 @@ from ament_index_python.packages import get_package_share_directory
 
 def generate_launch_description():
 
+    rviz_config_dir = os.path.join(get_package_share_directory('tools_recognition'), 'config/rviz/tools_recognition.rviz')
+    
     config_file_path = PathJoinSubstitution([
         get_package_share_directory('tools_recognition'),
         'config',
@@ -61,5 +63,12 @@ def generate_launch_description():
     return LaunchDescription([
         *declared_arguments,
         tools_recognition_node,
-        realsense2_node
+        realsense2_node,
+
+        Node(
+            package='rviz2',
+            executable='rviz2',
+            name='rviz2_node',
+            arguments=['-d', rviz_config_dir],
+            output='screen'),
     ])
